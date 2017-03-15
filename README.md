@@ -28,7 +28,7 @@ ext {
     siteUrl = 'https://github.com/shenhuanet/xxxx'
     gitUrl = 'https://github.com/shenhuanet/xxxx.git'
     issueUrl =''// issueUrl
-    libraryVersion = '1.0'
+    libraryVersion = '1.0.0'
     developerId = 'shenhua'
     developerName = 'shenhua'
     developerEmail = 'shenhuanet@126.com'
