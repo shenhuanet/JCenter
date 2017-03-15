@@ -51,7 +51,7 @@ bintray {
         publish = true
         publicDownloadNumbers = true
         version {
-            desc = versionDesc
+            desc = versionDescription
 	    released = new Date()
             gpg {
                 sign = true //Determines whether to GPG sign the files. The default is false
