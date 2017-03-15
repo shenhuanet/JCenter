@@ -24,10 +24,8 @@ ext {
     libraryName = ''// libraryName Corresponding compile 'shenhua.lib:xxxxx:1.0' In xxxxx
     artifact = ''// artifact = libraryName
     libraryDescription = ''// libraryDescription
-    versionDescription = ''// versionDescription
     siteUrl = 'https://github.com/shenhuanet/xxxx'
     gitUrl = 'https://github.com/shenhuanet/xxxx.git'
-    issueUrl =''// issueUrl
     libraryVersion = '1.0.0'
     developerId = 'shenhua'
     developerName = 'shenhua'
