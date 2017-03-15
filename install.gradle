@@ -15,6 +15,9 @@ install {
                 name libraryName
                 description libraryDescription
                 url siteUrl
+                
+                issueTrackerUrl issueUrl
+				versionDesc versionDescription
 
                 // Set your license
                 licenses {
@@ -34,7 +37,6 @@ install {
                     connection gitUrl
                     developerConnection gitUrl
                     url siteUrl
-
                 }
             }
         }
