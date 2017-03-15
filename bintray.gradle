@@ -52,7 +52,7 @@ bintray {
         publicDownloadNumbers = true
         version {
             desc = versionDesc
-	    released  = new Date()
+	    released = new Date()
             gpg {
                 sign = true //Determines whether to GPG sign the files. The default is false
                 passphrase = properties.getProperty("bintray.gpg.password")
