@@ -16,8 +16,8 @@ install {
                 description libraryDescription
                 url siteUrl
                 
-                issueTrackerUrl issueUrl
-				versionDesc versionDescription
+                //issueTrackerUrl issueUrl
+		versionDesc versionDescription
 
                 // Set your license
                 licenses {
