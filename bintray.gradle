@@ -45,7 +45,7 @@ bintray {
         userOrg = bintrayGroupName
         desc = libraryDescription
         websiteUrl = siteUrl
-        issueTrackerUrl = issueUrl
+        //issueTrackerUrl = issueUrl
         vcsUrl = gitUrl
         licenses = allLicenses
         publish = true
