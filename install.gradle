@@ -17,7 +17,7 @@ install {
                 url siteUrl
                 
                 //issueTrackerUrl issueUrl
-		versionDesc versionDescription
+		//versionDesc versionDescription
 
                 // Set your license
                 licenses {
