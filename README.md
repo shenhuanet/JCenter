@@ -34,6 +34,8 @@ ext {
     licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
     allLicenses = ["Apache-2.0"]
 }
+apply from: 'https://raw.githubusercontent.com/shenhuanet/JCenter/master/install.gradle'
+apply from: 'https://raw.githubusercontent.com/shenhuanet/JCenter/master/bintray.gradle'
 ```
 
  3. local.properties
