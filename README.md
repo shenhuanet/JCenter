@@ -21,9 +21,9 @@ ext {
     bintrayName = ''//bintrayName
     bintrayGroupName = 'shenhuanetos'
     publishedGroupId = 'com.shenhua.libs'
-    libraryName = ''// libraryName Corresponding compile 'shenhua.lib:xxxxx:1.0' In xxxxx
-    artifact = ''// artifact = libraryName
-    libraryDescription = ''// libraryDescription
+    libraryName = ''// libraryName Corresponding compile 'shenhua.lib:xxxxx:1.0' In xxxxx 
+    artifact = ''// artifact = libraryName : as same as library moudle name
+    libraryDescription = ''// libraryDescription
     siteUrl = 'https://github.com/shenhuanet/xxxx'
     gitUrl = 'https://github.com/shenhuanet/xxxx.git'
     libraryVersion = '1.0.0'
