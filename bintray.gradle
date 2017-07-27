@@ -41,24 +41,22 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = bintrayRepo
-        name = bintrayName
+        name = libraryName
         userOrg = bintrayGroupName
         desc = libraryDescription
         websiteUrl = siteUrl
-        //issueTrackerUrl = issueUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
         publish = true
         publicDownloadNumbers = true
         version {
             desc = libraryDescription
-	    released = new Date()
+            released = new Date()
             gpg {
                 sign = true //Determines whether to GPG sign the files. The default is false
                 passphrase = properties.getProperty("bintray.gpg.password")
                 //Optional. The passphrase for GPG signing'
             }
         }
-	
     }
 }
