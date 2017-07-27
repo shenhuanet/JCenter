@@ -17,22 +17,18 @@ dependencies {
  2. library build.gradle
 ```java
 ext {
+    libraryName = '' // libraryName must same as module library..
+    libraryVersion = '1.0.0'
+    libraryDescription = ''
+    siteUrl = 'https://github.com/shenhuanet/'
+    gitUrl = 'https://github.com/shenhuanet/.git'
+
     bintrayRepo = 'maven'
-    bintrayName = ''//bintrayName
     bintrayGroupName = 'shenhuanetos'
     publishedGroupId = 'com.shenhua.libs'
-    libraryName = 'library'// libraryName Corresponding compile 'shenhua.lib:xxxxx:1.0' In xxxxx 
-    artifact = 'library'// artifact = libraryName : as same as library module name
-    libraryDescription = ''// libraryDescription
-    siteUrl = 'https://github.com/shenhuanet/xxxx'// projectModule name
-    gitUrl = 'https://github.com/shenhuanet/xxxx.git'// projectModule name
-    libraryVersion = '1.0.0'
     developerId = 'shenhua'
     developerName = 'shenhua'
     developerEmail = 'shenhuanet@126.com'
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
 }
 apply from: 'https://raw.githubusercontent.com/shenhuanet/JCenter/master/install.gradle'
 apply from: 'https://raw.githubusercontent.com/shenhuanet/JCenter/master/bintray.gradle'
