@@ -15,34 +15,36 @@ if (project.hasProperty("android")) {
 // install
 install {
     repositories.mavenInstaller {
-        pom.groupId = libGroup
-        pom.artifactId = libArtifact
-        println("----- LIBRARY VERSION: " + version)
-        pom.project {
-            name libArtifact
-            packaging 'aar'
-            description libDesc
-            url web
-            // version control
-            scm {
+        configuration = configurations.archives
+        println("------  library version: " + version)
+        pom {
+            project {
+                groupId = libGroup
+                artifactId = libArtifact
+                packaging 'aar'
+                description libDesc
                 url web
-                connection web + '.git'
-                developerConnection web + '.git'
-            }
-            // developer info
-            developers {
-                developer {
-                    id devName
-                    name devName
-                    email devMail
+                // version control
+                scm {
+                    url web
+                    connection web + '.git'
+                    developerConnection web + '.git'
                 }
-            }
-            // license
-            licenses {
-                license {
-                    name 'The Apache Software License,Version 2.0'
-                    url 'http://www.apache.org/liscenses/LICENSE-2.0.txt'
-                    distribution '["Apache-2.0"]'
+                // developer info
+                developers {
+                    developer {
+                        id devName
+                        name devName
+                        email devMail
+                    }
+                }
+                // license
+                licenses {
+                    license {
+                        name 'The Apache Software License,Version 2.0'
+                        url 'http://www.apache.org/liscenses/LICENSE-2.0.txt'
+                        distribution '["Apache-2.0"]'
+                    }
                 }
             }
         }
@@ -85,6 +87,16 @@ artifacts {
     archives javadocJar
     archives sourcesJar
 }
+
+bintrayUpload.doLast {
+    def configuration = project.configurations.getByName("archives")
+    def files = configuration.getArtifacts().files.getFiles()
+    println("------  archives files length: " + files.size())
+    files.each { file ->
+        System.out.println("------  upload file: " + file.getName())
+    }
+}
+
 // bintray
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
