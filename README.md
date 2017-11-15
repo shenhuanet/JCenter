@@ -1,9 +1,9 @@
 # JCenter
 A tool for upload to jcenter.
 
-## Usage *NEW!*
+## Usage: *NEW!*
 in your library module build.gradle..
-```grovvy
+```java
 ext {
     repoOrg = ''// organization name
     repoGroup = 'maven'// repository name
