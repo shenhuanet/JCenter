@@ -1,7 +1,35 @@
 # JCenter
 A tool for upload to jcenter.
 
-## Usage:
+## Usage *NEW!*
+in your library module build.gradle..
+```grovvy
+ext {
+    repoOrg = ''// organization name
+    repoGroup = 'maven'// repository name
+    repoPkg = 'OpenLib'// repository package name
+    devName = 'shenhuanet'// developer name
+    devMail = 'shenhuanet@126.com'// developer email
+    libGroup = 'com.shenhua.libs'// lib group
+    libArtifact = 'open'// lib artifact
+    libDesc = ''// lib Description
+    web = 'https://github.com/shenhuanet/'// git url
+}
+apply from: 'https://raw.githubusercontent.com/shenhuanet/JCenter/master/bintray_release.gradle'
+```
+local.properties
+``` java
+bintray.apikey=********************
+bintray.user=****
+```
+Terminal
+```java
+gradlew install
+    
+gradlew bintrayUpload
+```
+
+## Usage: *Deprecated*
 
  1. Project build.gradle
  
