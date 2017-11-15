@@ -1,0 +1,114 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+group = libGroup
+project.archivesBaseName = libArtifact
+if (project.hasProperty("android")) {
+    // default config
+    version = android.defaultConfig.versionName
+} else {
+    if (libVersion == null) {
+        throw new NullPointerException("you must add the libVersion in the ext{}.")
+    }
+}
+
+// install
+install {
+    repositories.mavenInstaller {
+        pom.groupId = libGroup
+        pom.artifactId = libArtifact
+        println("----- LIBRARY VERSION: " + version)
+        pom.project {
+            name libArtifact
+            packaging 'aar'
+            description libDesc
+            url web
+            // version control
+            scm {
+                url web
+                connection web + '.git'
+                developerConnection web + '.git'
+            }
+            // developer info
+            developers {
+                developer {
+                    id devName
+                    name devName
+                    email devMail
+                }
+            }
+            // license
+            licenses {
+                license {
+                    name 'The Apache Software License,Version 2.0'
+                    url 'http://www.apache.org/liscenses/LICENSE-2.0.txt'
+                    distribution '["Apache-2.0"]'
+                }
+            }
+        }
+    }
+}
+// tasks
+if (project.hasProperty("android")) { // Android libraries
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+    }
+
+    task javadoc(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+        options.encoding = "UTF-8"
+    }
+} else { // Java libraries
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        baseName = libArtifact
+        from sourceSets.main.allSource
+    }
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    baseName = libArtifact
+    from javadoc.destinationDir
+}
+if (JavaVersion.current().isJava8Compatible()) {
+    allprojects {
+        tasks.withType(Javadoc) {
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
+    }
+}
+// artifacts
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+// bintray
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = repoGroup
+        name = repoPkg
+        userOrg = repoOrg
+        desc = libDesc
+        websiteUrl = web
+        vcsUrl = web + '.git'
+        publish = true
+        publicDownloadNumbers = true
+        licenses = ["Apache-2.0"]
+        version {
+            desc = libDesc
+            released = new Date()
+            gpg {
+                sign = true
+                passphrase = properties.getProperty("bintray.gpg.password")
+            }
+        }
+    }
+}
