@@ -21,6 +21,7 @@ local.properties
 ``` java
 bintray.apikey=********************
 bintray.user=****
+bintray.gpg.password=shenhua
 ```
 Terminal
 ```java
